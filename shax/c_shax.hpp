@@ -46,7 +46,7 @@ public:
         utils::println( std::string( "Session died" ), msg_color::light_red, msg_type::error );
     }
 
-    int ping() {
+    long long ping() {
 
         using namespace std::chrono;
 
@@ -61,7 +61,7 @@ public:
             }
 
             auto stop = high_resolution_clock::now();
-            auto ping_ms = duration_cast<milliseconds>(stop - start).count();
+            auto ping_ms = duration_cast<microseconds>(stop - start).count();
 
             if ( data.first == std::string( "pong" ) ) {
                 return ping_ms;
